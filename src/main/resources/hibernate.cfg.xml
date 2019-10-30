@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!--JDBC Databes connection settings-->
+        <!--<property name="connection.driver_class">com.mysql.jdbc.Driver</property>-->
+        <property name="connection.url">jdbc:mysql://localhost:3306/hb_student_tracker?serverTimezone=Europe/Warsaw</property>
+        <property name="connection.user">root</property>
+        <property name="connection.password">czarymary1234</property>
+
+        <!--Select SQL Dialect-->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <!--Echo the SQL to stdout-->
+        <property name="show_sql">true</property>
+        <!--JDBC connection pool settings-->
+        <!--<property name="connection.pool_size">1</property>-->
+        <!--Set the current session context-->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- update dopisuje kolumny jeśli brakuje -->
+        <!-- create przebudowuje bazę danych (jej tabele) - używamy jeśli mamy błąd w bazie danych i chcemy go naprawić (UWAGA! czyści dane!) -->
+        <!-- create-drop przebudowuje bazę (nie tylko tabele) -->
+        <!-- validate - do nothing - zweryfikuj -->
+        <property name="hbm2ddl.auto">create</property> <!-- hibernate to data definition language - polityka generowania tabel -->
+
+
+        <!-- tu będą kiedyś adresy klas modeli -->
+
+        <!--<mapping class="pl.sda.store.model.Inventory"></mapping>-->
+
+    </session-factory>
+</hibernate-configuration>
